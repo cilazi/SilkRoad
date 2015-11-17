@@ -72,7 +72,6 @@
     <Compile Include="Assets\Code\player.cs" />
     <Compile Include="Assets\CupLogic.cs" />
     <Compile Include="Assets\GameLogic.cs" />
-    <Compile Include="Assets\test.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2015\UnityVS.CSharp.targets" />
 </Project>
