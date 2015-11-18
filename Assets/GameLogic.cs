@@ -8,6 +8,9 @@ public class GameLogic : MonoBehaviour {
     //public Transform showNumbers;
     public Transform[] numbers;
 
+    public Transform UI_Win;
+    public Transform UI_Lose;
+
 	// Use this for initialization
 	void Start () {
 
@@ -34,7 +37,7 @@ public class GameLogic : MonoBehaviour {
 
     void PlayGame()
     {
-        if (!b_GameStart||win||lose)
+        if (!b_GameStart)
             return;
         if (Input.GetMouseButtonUp(0))
         {
@@ -43,7 +46,8 @@ public class GameLogic : MonoBehaviour {
             Collider2D h = Physics2D.OverlapPoint(ray);
             if (h != null)
             {
-
+                if (h.gameObject.name == "lose")
+                    Application.LoadLevel(Application.loadedLevel);
                 if (h.gameObject.transform == cups[curPointer])
                 {
                     numbers[curPointer].gameObject.SetActive(true);
@@ -69,6 +73,7 @@ public class GameLogic : MonoBehaviour {
     {
         win = true;
         Debug.Log("Win");
+        UI_Win.gameObject.SetActive(true);
     }
 
     void Lost()
@@ -77,6 +82,7 @@ public class GameLogic : MonoBehaviour {
         Debug.Log("Lose");
         for (int i = 0; i < 3; i++)
             numbers[i].gameObject.SetActive(true);
+        UI_Lose.gameObject.SetActive(true);
     }
 
     private float showStart;
