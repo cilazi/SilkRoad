@@ -37,7 +37,7 @@ public class CupLogic : MonoBehaviour
 
         Vector3 differ = transform.position - dest;
 
-        if (differ.magnitude<0.1)
+        if (differ.magnitude<0.2)
         {
             arrived = true;
             transform.position = dest;
